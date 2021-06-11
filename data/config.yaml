@@ -1,5 +1,3 @@
-#username: carloshp11@gmail.com
-#password: Contranvidianumber1@#@
 key: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkiLCJpYXQiOjE2MTU0NDYzMzQsImV4cCI6MTkzMDgwNjMzNCwibmJmIjoxNjE1NDQ2MzM0LCJqdGkiOjI3NzUzNzAyLCJzdWIiOjI3NzUzNzAyfQ.Qp-ihm71tGG0my3YZNA9HIUW5HCO8j6zQ8YsaVw08eM
 
 headers:
@@ -10,16 +8,6 @@ headers:
 farms_to_autooc:
 #  - 543234
   - 531401
-#fans_objective:
-#  -
-#  -
-#  - 88
-#  -
-#  - 88
-#  -
-#  -
-#  -
-#  - 82
 fans_limit:
   RTX 3070: 75
   RTX 3080: 88
