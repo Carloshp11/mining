@@ -66,11 +66,11 @@ for farm_id in config.farms_to_autooc:
                 elif fan_delta >= 2:
                     power -= 1
             elif (gpu['power'] < gpu['power_limit']) and (gpu['hash'] <= gpu['hash_objective']):
-                if fan_delta <= 10:
+                if fan_delta <= -10:
                     power += 5
-                elif fan_delta <= 5:
+                elif fan_delta <= -5:
                     power += 3
-                elif fan_delta <= 2:
+                elif fan_delta <= -2:
                     power += 1
             else:
                 pass
