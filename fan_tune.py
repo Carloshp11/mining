@@ -54,6 +54,7 @@ for farm_id in config.farms_to_autooc:
 
         power_overclock = []
         indexes = []
+        change = False
         for gpu in sorted(gpus_info, key=lambda gpu: gpu['bus_number']):
             initial_power = gpu['power']
             power = gpu['power']
@@ -75,18 +76,22 @@ for farm_id in config.farms_to_autooc:
             else:
                 pass
             if power != initial_power:
+                change = True
                 print(f"Gpu {gpu['short_name']} bus {gpu['bus_number']} fan excess {fan_delta} "
                       f"power goes from {initial_power} to {power}")
             power_overclock.append(str(power))
             indexes.append(str(gpu['index']))
-        # power_overclock = ' '.join(power_overclock)
-        # indexes = ','.join(indexes)
-        core_clocks = worker['overclock']['nvidia']['core_clock'].split()
-        mem_clocks = worker['overclock']['nvidia']['mem_clock'].split()
-        print(power_overclock)
-        api.set_oc(farm_id=farm_id, worker_id=worker['id'],
-                   indexes=indexes, power_limits=power_overclock,
-                   core_clocks=core_clocks,
-                   mem_clocks=mem_clocks)
+        if change:
+            # power_overclock = ' '.join(power_overclock)
+            # indexes = ','.join(indexes)
+            core_clocks = worker['overclock']['nvidia']['core_clock'].split()
+            mem_clocks = worker['overclock']['nvidia']['mem_clock'].split()
+            print(power_overclock)
+            api.set_oc(farm_id=farm_id, worker_id=worker['id'],
+                       indexes=indexes, power_limits=power_overclock,
+                       core_clocks=core_clocks,
+                       mem_clocks=mem_clocks)
+        else:
+            print('No power changes required')
 
 print('The end')
